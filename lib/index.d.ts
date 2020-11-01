@@ -1,6 +1,4 @@
-export declare const Head: (target: any[]) => any;
-export declare const Tail: (target: any[]) => any[];
-export declare const Init: (target: any[]) => any[];
-export declare const Last: (target: any[]) => any;
-export declare const Concat: (source: any[], ...arrays: any[]) => never[];
-export declare const Clone: (source: object) => {};
+import SlotMachine from "./SlotMachine";
+import * as BookUtils from "./Books";
+import * as Operations from "./Operations";
+export { BookUtils, Operations, SlotMachine };
