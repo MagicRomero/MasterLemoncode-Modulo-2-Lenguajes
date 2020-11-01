@@ -3,3 +3,11 @@ export const Head = (target: any[]) => {
 
   return head;
 };
+
+export const Tail = (target: any[]) => {
+  const [first, ...rest] = target;
+
+  return rest;
+};
+
+export const Init = (target: any[]) => target.slice(0, -1);
