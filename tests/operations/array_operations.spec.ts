@@ -1,4 +1,4 @@
-import { Head, Tail, Init, Last } from "../src";
+import { Head, Tail, Init, Last } from "../../src";
 
 describe("Head function", () => {
   it("Head operation numbers", () => {
