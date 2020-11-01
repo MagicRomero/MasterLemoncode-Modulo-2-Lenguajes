@@ -1,4 +1,6 @@
-import { Clone, Merge } from "../../src";
+import { Operations } from "../../src";
+
+const { Clone, Merge } = Operations;
 
 describe("Clone merge operations", () => {
   it("Basic clone operation", () => {

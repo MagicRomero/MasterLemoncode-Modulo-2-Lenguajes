@@ -1,4 +1,6 @@
-import { Head, Tail, Init, Last } from "../../src";
+import { Operations } from "../../src";
+
+const { Head, Tail, Last, Init } = Operations;
 
 describe("Head function", () => {
   it("Head operation numbers", () => {

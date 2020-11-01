@@ -10,7 +10,8 @@
     "test-books": "npm run test -- tests/exercises/read_books.spec.ts",
     "test-array-operations": "npm run test -- tests/operations/array_operations.spec.ts",
     "test-clone-merge": "npm run test -- tests/operations/clone_merge.spec.ts",
-    "test-concat": "npm run test -- tests/operations/concat.spec.ts"
+    "test-concat": "npm run test -- tests/operations/concat.spec.ts",
+    "test-slot-machine": "npm run test -- tests/exercises/slot_machine.spec.ts"
   },
   "jest": {
     "transform": {

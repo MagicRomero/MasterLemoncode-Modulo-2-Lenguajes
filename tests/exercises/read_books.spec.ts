@@ -1,4 +1,4 @@
-import { isBookRead } from "../../src";
+import { isBookRead } from "../../src/Books";
 
 const books = [
   { title: "Harry Potter y la piedra filosofal", isRead: true },

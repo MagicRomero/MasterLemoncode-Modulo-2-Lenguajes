@@ -1,4 +1,6 @@
-import { Concat } from "../../src";
+import { Operations } from "../../src";
+
+const { Concat } = Operations;
 
 describe("Concat operations", () => {
   it("Concat with 2 arrays", () => {
