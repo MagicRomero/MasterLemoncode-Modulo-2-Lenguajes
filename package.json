@@ -7,6 +7,7 @@
     "prepare": "npm run build",
     "build": "tsc",
     "test": "jest",
+    "test-verbose": "jest --verbose",
     "test-array-operations": "npm run test -- tests/operations/array_operations.spec.ts",
     "test-clone-merge": "npm run test -- tests/operations/clone_merge.spec.ts",
     "test-concat": "npm run test -- tests/operations/concat.spec.ts",
