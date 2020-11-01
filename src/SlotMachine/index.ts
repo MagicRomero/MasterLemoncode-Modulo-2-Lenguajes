@@ -7,11 +7,18 @@ export default class SlotMachine {
 
   constructor(
     slots: number = 3,
-    onSuccess: CallableFunction = (): string =>
-      `Congrats! you won ${this.#coins} coins`,
+    onSuccess: CallableFunction = (
+      results: boolean[],
+      coins: number
+    ): object => ({
+      results,
+      message: `Congrats! you won ${coins} coins`,
+      coins,
+    }),
     onFail: CallableFunction = (results: boolean[]): object => ({
       results,
-      message: `Good luck the next time!`,
+      message: "Good luck the next time!",
+      coins: 0,
     })
   ) {
     this.slots = slots;
@@ -24,7 +31,7 @@ export default class SlotMachine {
   }
 
   set coins(num: number) {
-    if (Math.abs(num) > 1) {
+    if (Math.abs(num) > this.coins + 1) {
       throw new Error(
         "You cannot set more than one coin at time in this machine"
       );
@@ -42,17 +49,19 @@ export default class SlotMachine {
       results.push(this._generateSlotResult());
     }
 
-    if (this._isSuccessFullGame(results)) {
+    if (this._isSuccessfullGame(results)) {
+      const price = this.coins;
+
       this._resetCoins();
 
-      return this.onSuccessCallback(results);
+      return this.onSuccessCallback(results, price);
     } else {
       return this.onFailCallback(results);
     }
   }
 
   private _addCoin() {
-    this.coins++;
+    this.coins += 1;
   }
 
   private _resetCoins() {
@@ -63,7 +72,7 @@ export default class SlotMachine {
     return Math.random() >= this._calcProbabilityBasedOnSlots();
   }
 
-  private _isSuccessFullGame(results: boolean[]): boolean {
+  private _isSuccessfullGame(results: boolean[]): boolean {
     return (
       results.filter((result) => Boolean(result)).length === results.length
     );
