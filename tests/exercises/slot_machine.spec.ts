@@ -98,5 +98,42 @@ describe("Slot machine Consumer", () => {
       expect(Array.isArray(gamePlayed.results)).toBeTruthy();
       expect(gamePlayed.results).toHaveLength(5);
     });
+
+    it("Slot machine custom callback functions", () => {
+      const onSuccess = (results: boolean[], coins: number) =>
+        `You won ${coins} coins, awesome!`;
+
+      const onFail = (results: boolean[]) =>
+        `Not lucky today, results --> ${results
+          .map((result: boolean) => result.toString())
+          .join(",")}`;
+
+      const machine = new SlotMachine(3, onSuccess, onFail);
+
+      let spy = jest
+        .spyOn(machine as any, "_generateSlotResult")
+        .mockImplementation(() => true);
+
+      expect(machine.play()).toEqual("You won 1 coins, awesome!");
+
+      spy = jest
+        .spyOn(machine as any, "_generateSlotResult")
+        .mockImplementation(() => false);
+
+      expect(machine.play()).toEqual(
+        "Not lucky today, results --> false,false,false"
+      );
+
+      machine.play();
+      machine.play();
+
+      spy = jest
+        .spyOn(machine as any, "_generateSlotResult")
+        .mockImplementation(() => true);
+
+      expect(machine.play()).toEqual("You won 4 coins, awesome!");
+
+      spy.mockRestore();
+    });
   });
 });
