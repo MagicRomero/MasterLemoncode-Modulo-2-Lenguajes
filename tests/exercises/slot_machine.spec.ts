@@ -18,13 +18,14 @@ describe("Slot machine Consumer", () => {
     });
 
     it("Slot machine play function with default parameters", () => {
+      expect(SlotMachine).not.toHaveBeenCalled();
+
       const machine = new SlotMachine();
 
       expect(SlotMachine).toHaveBeenCalledTimes(1);
 
       machine.play();
 
-      console.log(machine.coins, machine.slots);
       expect(MockedSlotMachine.mock.instances[0].play).toHaveBeenCalled();
     });
   });
