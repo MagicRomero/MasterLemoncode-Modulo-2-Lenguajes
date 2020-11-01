@@ -1,18 +1,27 @@
-import { Head, Tail, Init } from "../src";
+import { Head, Tail, Init, Last } from "../src";
 
 describe("Head function", () => {
   it("Head operation numbers", () => {
-    expect(Head([100, 2, 6])).toEqual(100);
+    const target = [100, 2, 6];
+
+    expect(Head(target)).toEqual(100);
+    expect(target).toEqual(target); //Test inmutability
   });
 
   it("Head operation with strings", () => {
-    expect(Head(["show me", "hide me", "extra"])).toMatch("show me");
+    const target = ["show me", "hide me", "extra"];
+
+    expect(Head(target)).toMatch("show me");
+    expect(target).toEqual(target);
   });
 
   it("Head operation with objects", () => {
-    expect(Head([{ name: "Totito" }, { name: "Anacardo" }])).toMatchObject({
+    const target = [{ name: "Totito" }, { name: "Anacardo" }];
+
+    expect(Head(target)).toMatchObject({
       name: "Totito",
     });
+    expect(target).toEqual(target);
   });
 
   it("Head operation with empty array", () => {
@@ -22,21 +31,24 @@ describe("Head function", () => {
 
 describe("Tail function", () => {
   it("Tail operation with numbers", () => {
-    expect(Tail([1, 2, 10])).toEqual([2, 10]);
+    const target = [1, 2, 10];
+
+    expect(Tail(target)).toEqual([2, 10]);
+    expect(target).toEqual(target);
   });
 
   it("Tail operation with strings", () => {
-    expect(Tail(["hide me", "just in the middle", "show me"])).toEqual([
-      "just in the middle",
-      "show me",
-    ]);
+    const target = ["hide me", "just in the middle", "show me"];
+
+    expect(Tail(target)).toEqual(["just in the middle", "show me"]);
+    expect(target).toEqual(target);
   });
 
   it("Tail operation with objects", () => {
-    expect(Tail([{ price: 50 }, { price: 30 }, { price: 999 }])).toEqual([
-      { price: 30 },
-      { price: 999 },
-    ]);
+    const target = [{ price: 50 }, { price: 30 }, { price: 999 }];
+
+    expect(Tail(target)).toEqual([{ price: 30 }, { price: 999 }]);
+    expect(target).toEqual(target);
   });
 
   it("Tail operation with empty array", () => {
@@ -46,24 +58,54 @@ describe("Tail function", () => {
 
 describe("Init function", () => {
   it("Init operation with numbers", () => {
-    expect(Init([1, 2, 10])).toEqual([1, 2]);
+    const target = [1, 2, 10];
+
+    expect(Init(target)).toEqual([1, 2]);
+    expect(target).toEqual(target);
   });
 
   it("Init operation with strings", () => {
-    expect(Init(["hide me", "just in the middle", "show me"])).toEqual([
-      "hide me",
-      "just in the middle",
-    ]);
+    const target = ["hide me", "just in the middle", "show me"];
+
+    expect(Init(target)).toEqual(["hide me", "just in the middle"]);
+    expect(target).toEqual(target);
   });
 
   it("Init operation with objects", () => {
-    expect(Init([{ price: 50 }, { price: 30 }, { price: 999 }])).toEqual([
-      { price: 50 },
-      { price: 30 },
-    ]);
+    const target = [{ price: 50 }, { price: 30 }, { price: 999 }];
+
+    expect(Init(target)).toEqual([{ price: 50 }, { price: 30 }]);
+    expect(target).toEqual(target);
   });
 
   it("Init operation with empty array", () => {
     expect(Init([])).toHaveLength(0);
+  });
+});
+
+describe("Last function", () => {
+  it("Last operation with numbers", () => {
+    const target = [1, 2, 10];
+
+    expect(Last(target)).toEqual(10);
+    expect(target).toEqual(target);
+  });
+
+  it("Last operation with strings", () => {
+    const target = ["hide me", "just in the middle", "show me"];
+
+    expect(Last(target)).toMatch("show me");
+    expect(target).toEqual(target);
+  });
+
+  it("Last operation with objects", () => {
+    const target = [{ price: 50 }, { price: 30 }, { price: 999 }];
+
+    expect(Last(target)).toMatchObject({ price: 999 });
+    expect(target).toEqual(target);
+  });
+
+  it("Last operation with empty array", () => {
+    expect(Last([])).toBeUndefined();
   });
 });

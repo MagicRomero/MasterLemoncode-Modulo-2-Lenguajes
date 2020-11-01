@@ -11,3 +11,5 @@ export const Tail = (target: any[]) => {
 };
 
 export const Init = (target: any[]) => target.slice(0, -1);
+
+export const Last = (target: any[]) => [...target].pop();
