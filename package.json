@@ -1,8 +1,14 @@
 {
-  "name": "lemoncode-tools",
+  "name": "modulo-2-ejercicios-lenguajes",
   "version": "0.1.0",
-  "description": "A set of tools that made working with javascript objects easily",
-  "main": "index.js",
+  "description": "Ejercicios del modulo 2 para el Master de Lemoncode",
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.1",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
+  },
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc",
@@ -24,6 +30,14 @@
     ],
     "testRegex": "^.+\\.spec\\.ts$"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagicRomero/MasterLemoncode-Modulo-2-Lenguajes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MagicRomero/MasterLemoncode-Modulo-2-Lenguajes.git/issues"
+  },
+  "homepage": "https://github.com/MagicRomero/MasterLemoncode-Modulo-2-Lenguajes.git#readme",
   "keywords": [
     "lemoncode",
     "typescript",
@@ -31,14 +45,10 @@
     "array",
     "object",
     "functional",
-    "inmutable"
+    "inmutable",
+    "books",
+    "slot-machine"
   ],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/jest": "^26.0.15",
-    "jest": "^26.6.1",
-    "ts-jest": "^26.4.3",
-    "typescript": "^4.0.5"
-  }
+  "author": "Daniel Romero Tapia",
+  "license": "ISC"
 }
